@@ -1,5 +1,5 @@
 :root {
-  --bg-color: #0f172a;
+  --bg-color: #0b1220;
   --text-main: #e5e7eb;
   --text-muted: #94a3b8;
   --accent: #38bdf8;
@@ -29,6 +29,7 @@ h1{
   background-color: #020617;
   border-bottom: 1px solid #1e293b;
   z-index: 1000;
+  color: #e5e7eb;
 }
 
 .navbar a {
