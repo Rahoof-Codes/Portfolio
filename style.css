@@ -59,10 +59,13 @@ align-content: center;
   height: 100%;
   object-fit: cover;
 }
-.PT,.About,.skill,.heading{
+.PT,.skill,.heading{
     text-align: center;
     
     color: var(--text-main);
+}
+.About{
+  color: var(--text-main);
 }
 .Sub{   
      color: var(--text-muted);   
