@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 :root {
   --bg-color: #0b1220;
   --text-main: #e5e7eb;
@@ -6,6 +10,10 @@
 }
 .body{
     font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0;
+
 }
 *{
     
@@ -43,12 +51,13 @@ h1{
 
 .navbar a:hover {
   color: var(--accent);
+  transform: translateY(-5px);
 }
 .profile{
 margin: 0 auto;
    width: 180px;
   height: 180px;
-  border-radius: 50%;
+  border-radius: 70%;
   overflow: hidden;
   padding: 20px;
 }
@@ -58,15 +67,19 @@ align-content: center;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 55%;
+  
 }
 .PT,.skill,.heading{
     text-align: center;
     
     color: var(--text-main);
 }
-.About{
+.About,h3{
   color: var(--text-main);
 }
+
+
 .Sub{   
      color: var(--text-muted);   
 }
@@ -74,24 +87,93 @@ align-content: center;
     color: var(--text-main);
     
 }
-.certificate {
-    
-    
-    display:flex ;
-    flex-direction: column;
-   margin: 0 auto;
-   justify-content: center;
-   align-items: center;
-  
- 
-  
-  
+.certificate-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on mobile */
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
-.certificate img{
-align-content: center;
 
-  width: 50%;
-  height: 50%;
- }
+.cert-item {
+    background: #1e293b;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px; /* Limits size */
+}
 
-  
+.cert-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+ 
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.card {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 12px; /* Rounded corners */
+    border: 1px solid #334155;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Moves up slightly on hover */
+    border-color: var(--accent);
+}
+
+
+.tag {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.1); /* Transparent blue */
+    color: var(--accent);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: var(--accent);
+    color: #000;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+ /* Add inside your style.css */
+.skill-group {
+    margin-bottom: 25px;
+    text-align: center; /* Centers the tags */
+}
+
+.skill-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Style for the 'Learning' tags to look different */
+.learning-tag {
+    border-color: var(--text-muted); /* Grey border instead of blue */
+    color: var(--text-muted);       /* Grey text */
+    border-style: dashed;           /* Dashed line shows it's "in progress" */
+}
+
