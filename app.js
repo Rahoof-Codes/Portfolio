@@ -1,4 +1,4 @@
-// app.js — React components. Edit your info in config.js instead!
+
 
 // ===== COMPONENTS =====
 
