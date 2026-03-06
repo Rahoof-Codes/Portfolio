@@ -1,6 +1,4 @@
-// ============================================================
-//  config.js — Edit YOUR info here. Don't touch app.js!
-// ============================================================
+
 
 const CONFIG = {
 
@@ -19,9 +17,9 @@ const CONFIG = {
 
   // ---------- Contact ----------
   contact: {
-    email: "rahoof@example.com",       // ← Replace with your real email
+    email: "abdulrahoofrahoof123@gmail.com",       
     github: "https://github.com/Rahoof-Codes",
-    linkedin: "https://www.linkedin.com/in/abdulrahoof",  // ← Update if different
+    linkedin: "https://www.linkedin.com/in/abdulrahoof",  
     githubUsername: "Rahoof-Codes",
     linkedinName: "Abdul Rahoof",
   },
