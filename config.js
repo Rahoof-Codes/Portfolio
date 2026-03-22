@@ -1,4 +1,6 @@
-
+// ============================================================
+//  config.js — Edit YOUR info here. Don't touch app.js!
+// ============================================================
 
 const CONFIG = {
 
@@ -17,9 +19,9 @@ const CONFIG = {
 
   // ---------- Contact ----------
   contact: {
-    email: "abdulrahoofrahoof123@gmail.com",       
+    email: "gmail-rahoof.codes@gmail.com",
     github: "https://github.com/Rahoof-Codes",
-    linkedin: "https://www.linkedin.com/in/abdulrahoof",  
+    linkedin: "https://www.linkedin.com/in/abdul-rahoof-25a1983b6",
     githubUsername: "Rahoof-Codes",
     linkedinName: "Abdul Rahoof",
   },
@@ -35,24 +37,28 @@ const CONFIG = {
   skills: [
     {
       title: "Web Development",
+      icon: "🌐",
       tags: ["HTML5", "CSS3", "JavaScript (ES6+)", "Responsive Design"],
       highlight: false,
       learning: false,
     },
     {
       title: "Programming",
+      icon: "⚡",
       tags: ["Problem Solving", "Logic Building"],
       highlight: false,
       learning: false,
     },
     {
       title: "Tools & Deployment",
+      icon: "🛠️",
       tags: ["Git & GitHub", "VS Code", "Vercel", "SPCK Editor"],
       highlight: false,
       learning: false,
     },
     {
-      title: "🚀 Currently Exploring",
+      title: "Currently Exploring",
+      icon: "🚀",
       tags: ["React.js", "Backend Basics", "LocalStorage / Offline Apps"],
       highlight: true,
       learning: true,
@@ -77,22 +83,22 @@ const CONFIG = {
       live: "https://billing-intwqo5y5-rahoofpros-projects.vercel.app/",
       code: "https://github.com/Rahoof-Codes/tea-hub-billing-app",
     },
-    // Add more projects here like this:
-    // {
-    //   num: "03",
-    //   title: "Your Project Name",
-    //   desc: "Short description of the project.",
-    //   tech: ["React", "CSS3"],
-    //   live: "https://your-live-link.vercel.app/",
-    //   code: "https://github.com/Rahoof-Codes/your-repo",
-    // },
   ],
 
-  // ---------- Certificates ----------
-  certificates: [
-    { img: "images/HTML.jpg", title: "HTML Mastery" },
-    { img: "images/CSS.jpg", title: "CSS Styling" },
-    // Add more:
-    // { img: "images/JS.jpg", title: "JavaScript Basics" },
-  ],
+  // ---------- What I'm Building (WIP) ----------
+  wip: {
+    name: "J.A.R.V.I.S",
+    tagline: "My own Tony Stark AI. Private. Local. Real.",
+    description: "A personal AI assistant that runs offline on my machine for full privacy — no ChatGPT, no data leaks. On mobile, it hits my own cloud server so I control everything end to end.",
+    status: "In Progress",
+    progress: 60, // percentage
+    features: [
+      { icon: "🧠", title: "Local LLM Brain",     desc: "Ollama + 7B model (~5GB). Runs on my own CPU/GPU — thinks offline, zero cloud dependency." },
+      { icon: "🎙️", title: "Real Voice I/O",      desc: "Faster-Whisper for speech-to-text. Piper TTS speaks back. Feels like a real assistant." },
+      { icon: "📱", title: "Tiny Mobile App",     desc: "Under 50MB APK. Just UI + voice capture. Sends to my VPS — no fat model on your phone." },
+      { icon: "🔒", title: "Self-Hosted & Secure", desc: "My own VPS + GPU server. Auth-protected API. No subscriptions, no data sold. Ever." },
+    ],
+    tech: ["Ollama", "LLaMA 7B", "Faster-Whisper", "Piper TTS", "Python", "REST API", "React Native", "VPS / GPU"],
+    github: "https://github.com/Rahoof-Codes",
+  },
 };
