@@ -19,7 +19,7 @@ const CONFIG = {
 
   // ---------- Contact ----------
   contact: {
-    email: "gmail-rahoof.codes@gmail.com",
+    email: "rahoof.codes@gmail.com",
     github: "https://github.com/Rahoof-Codes",
     linkedin: "https://www.linkedin.com/in/abdul-rahoof-25a1983b6",
     githubUsername: "Rahoof-Codes",
