@@ -21,14 +21,14 @@ function useReveal() {
    NAVBAR
 ══════════════════════════════ */
 function Navbar() {
-  const links = ['Home','About','Skills','Projects','Contact'];
+  const links = ['Home','About','Skills','Projects','Upcoming','Contact'];
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive]     = useState('home');
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
-      const ids = ['home','about','skills','projects','contact'];
+      const ids = ['home','about','skills','projects','upcoming','contact'];
       for (let i = ids.length - 1; i >= 0; i--) {
         const el = document.getElementById(ids[i]);
         if (el && window.scrollY >= el.offsetTop - 110) { setActive(ids[i]); break; }
@@ -225,6 +225,13 @@ function Projects() {
       <div className="project-grid">
         {projects.map((proj, i) => (
           <div key={proj.num} className="project-card" style={{ animationDelay: `${i * 0.15}s` }}>
+            {proj.image && (
+              <div className="project-banner-wrap">
+                <img src={proj.image} alt={proj.title} className="project-banner" loading="lazy"
+                  onError={e => { e.currentTarget.parentElement.style.display='none'; }} />
+                <div className="project-banner-overlay" />
+              </div>
+            )}
             <div className="project-card-header">
               <span className="project-num">Project {proj.num}</span>
               <div className="project-links-row">
@@ -270,85 +277,6 @@ function Education() {
           <h4>{college}</h4>
           <p className="edu-degree">{degree}</p>
           <p className="edu-focus">{focus}</p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ══════════════════════════════
-   WIP — JARVIS
-══════════════════════════════ */
-function WIP() {
-  const [ref, visible] = useReveal();
-  const { wip } = CONFIG;
-
-  return (
-    <section id="wip" ref={ref} className={`section wip-section${visible ? ' revealed' : ''}`}>
-      <div className="section-eyebrow">
-        <span className="eyebrow-num">05</span>
-        <span className="eyebrow-line" />
-        <span className="eyebrow-label">What I'm Building</span>
-      </div>
-
-      <div className="wip-card">
-        <div className="wip-bg-glow" />
-        <div className="wip-grid-dots" />
-
-        <div className="wip-top">
-          <div className="wip-top-left">
-            <div className="wip-status-badge">
-              <span className="wip-pulse" />
-              {wip.status}
-            </div>
-            <h2 className="wip-name">{wip.name}</h2>
-            <p className="wip-tagline">{wip.tagline}</p>
-            <p className="wip-desc">{wip.description}</p>
-            <a href={wip.github} target="_blank" rel="noopener noreferrer" className="btn wip-btn">
-              Follow Progress ↗
-            </a>
-          </div>
-
-          <div className="wip-top-right">
-            <div className="wip-progress-wrap">
-              <div className="wip-progress-header">
-                <span>Build Progress</span>
-                <span className="wip-progress-pct">{wip.progress}%</span>
-              </div>
-              <div className="wip-progress-track">
-                <div className="wip-progress-bar" style={{ width: `${wip.progress}%` }} />
-              </div>
-              <div className="wip-progress-steps">
-                {['Architecture','Local LLM','Voice I/O','Mobile App','Cloud Deploy'].map((s, i) => (
-                  <div key={s} className={`wip-step${i * 20 < wip.progress ? ' done' : ''}`}>
-                    <div className="wip-step-dot" />
-                    <span>{s}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="wip-tech-wrap">
-              <div className="wip-tech-label">Tech Stack</div>
-              <div className="wip-tech-tags">
-                {wip.tech.map(t => (
-                  <span key={t} className="wip-tech-tag">{t}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="wip-features">
-          {wip.features.map((f, i) => (
-            <div key={i} className="wip-feature">
-              <div className="wip-feature-icon">{f.icon}</div>
-              <div>
-                <div className="wip-feature-title">{f.title}</div>
-                <div className="wip-feature-desc">{f.desc}</div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
@@ -424,6 +352,100 @@ function Footer() {
 }
 
 /* ══════════════════════════════
+   UPCOMING PROJECTS
+══════════════════════════════ */
+function UpcomingProjects() {
+  const [ref, visible] = useReveal();
+  const { wip } = CONFIG;
+
+  return (
+    <section id="upcoming" ref={ref} className={`section upcoming-section${visible ? ' revealed' : ''}`}>
+      <div className="section-eyebrow">
+        <span className="eyebrow-num">05</span>
+        <span className="eyebrow-line" />
+        <span className="eyebrow-label">Upcoming Projects</span>
+      </div>
+      <h2 className="section-title">What's Coming Next</h2>
+
+      {/* JARVIS full-width hero card */}
+      <div className="upcoming-jarvis-card">
+
+        {/* BG image */}
+        <div className="ujc-bg">
+          <img src="images/jarvis.jpg" alt="JARVIS AI" className="ujc-bg-img" />
+          <div className="ujc-overlay" />
+          <div className="ujc-scanlines" />
+          {/* Floating glow orb */}
+          <div className="ujc-glow-orb" />
+        </div>
+
+        {/* Content */}
+        <div className="ujc-content">
+
+          {/* Left */}
+          <div className="ujc-left">
+            <div className="ujc-badges">
+              <span className="ujc-status-badge">
+                <span className="ujc-pulse" /> {wip.status}
+              </span>
+              <span className="ujc-pct-badge">{wip.progress}% Done</span>
+            </div>
+
+            <h2 className="ujc-name">{wip.name}</h2>
+            <p className="ujc-tagline">{wip.tagline}</p>
+            <p className="ujc-desc">{wip.description}</p>
+
+            <div className="ujc-tech-list">
+              {wip.tech.map(t => <span key={t} className="ujc-tech-tag">{t}</span>)}
+            </div>
+
+            <a href={wip.github} target="_blank" rel="noopener noreferrer" className="ujc-btn">
+              Follow on GitHub ↗
+            </a>
+          </div>
+
+          {/* Right */}
+          <div className="ujc-right">
+            {/* Progress card */}
+            <div className="ujc-glass-card">
+              <div className="ujc-progress-header">
+                <span className="ujc-progress-label">Build Progress</span>
+                <span className="ujc-progress-pct">{wip.progress}%</span>
+              </div>
+              <div className="ujc-track">
+                <div className="ujc-bar" style={{ width: `${wip.progress}%` }} />
+              </div>
+              <div className="ujc-steps">
+                {['Architecture','Local LLM','Voice I/O','Mobile App','Cloud Deploy'].map((s, idx) => (
+                  <div key={s} className={`ujc-step${idx * 20 < wip.progress ? ' done' : ''}`}>
+                    <div className="ujc-step-dot" />
+                    <span>{s}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Feature cards */}
+            <div className="ujc-features">
+              {wip.features.map((f, i) => (
+                <div key={i} className="ujc-feature">
+                  <span className="ujc-feature-icon">{f.icon}</span>
+                  <div>
+                    <div className="ujc-feature-title">{f.title}</div>
+                    <div className="ujc-feature-desc">{f.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════
    APP
 ══════════════════════════════ */
 function App() {
@@ -435,7 +457,7 @@ function App() {
       <Skills />
       <Projects />
       <Education />
-      <WIP />
+      <UpcomingProjects />
       <Contact />
       <Footer />
     </React.Fragment>

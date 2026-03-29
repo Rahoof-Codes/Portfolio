@@ -19,7 +19,7 @@ const CONFIG = {
 
   // ---------- Contact ----------
   contact: {
-    email: "rahoof.codes@gmail.com",
+    email: "gmail-rahoof.codes@gmail.com",
     github: "https://github.com/Rahoof-Codes",
     linkedin: "https://www.linkedin.com/in/abdul-rahoof-25a1983b6",
     githubUsername: "Rahoof-Codes",
@@ -74,6 +74,7 @@ const CONFIG = {
       tech: ["HTML5", "CSS3", "JavaScript"],
       live: "https://modern-martin.vercel.app/",
       code: "https://github.com/Rahoof-Codes/Modern-Mart",
+      image: "images/mart.jpg",
     },
     {
       num: "02",
@@ -82,6 +83,7 @@ const CONFIG = {
       tech: ["HTML5", "CSS3", "JavaScript", "LocalStorage"],
       live: "https://billing-intwqo5y5-rahoofpros-projects.vercel.app/",
       code: "https://github.com/Rahoof-Codes/tea-hub-billing-app",
+      image: "images/bill.jpg",
     },
   ],
 
