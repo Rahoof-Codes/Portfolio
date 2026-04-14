@@ -75,6 +75,7 @@ const CONFIG = {
       live: "https://modern-martin.vercel.app/",
       code: "https://github.com/Rahoof-Codes/Modern-Mart",
       image: "images/mart.jpg",
+      character: "🧑‍💼",
     },
     {
       num: "02",
@@ -84,8 +85,20 @@ const CONFIG = {
       live: "https://billing-intwqo5y5-rahoofpros-projects.vercel.app/",
       code: "https://github.com/Rahoof-Codes/tea-hub-billing-app",
       image: "images/bill.jpg",
+      character: "🧾",
+    },
+    {
+      num: "03",
+      title: "EMPIRE CONSTRUCTION",
+      desc: "A front-end website template designed for a construction business, Empire Construction.",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+      live: "https://empire-construction-ten.vercel.app/",
+      code: "https://github.com/Rahoof-Codes/empire-construction",
+      image: "images/construct.jpg",
+      character: "👷",
     },
   ],
+  
 
   // ---------- What I'm Building (WIP) ----------
   wip: {

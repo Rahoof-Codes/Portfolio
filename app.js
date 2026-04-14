@@ -207,6 +207,60 @@ function Skills() {
 }
 
 /* ══════════════════════════════
+   PROJECT CARD (with character hover/touch effect)
+══════════════════════════════ */
+function ProjectCard({ proj, index }) {
+  const [active, setActive] = useState(false);
+  let touchTimer = null;
+
+  function handleTouchStart() {
+    setActive(true);
+  }
+  function handleTouchEnd() {
+    // Keep active briefly so user can see the effect, then dismiss
+    touchTimer = setTimeout(() => setActive(false), 900);
+  }
+
+  return (
+    <div
+      className={`project-card${active ? ' is-active' : ''}`}
+      style={{ animationDelay: `${index * 0.15}s` }}
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      {proj.image && (
+        <div className="project-banner-wrap">
+          <img src={proj.image} alt={proj.title} className="project-banner" loading="lazy"
+            onError={e => { e.currentTarget.parentElement.style.display='none'; }} />
+          <div className="project-banner-overlay" />
+          {proj.character && (
+            <span className="card-character" aria-hidden="true">{proj.character}</span>
+          )}
+        </div>
+      )}
+      <div className="project-card-header">
+        <span className="project-num">Project {proj.num}</span>
+        <div className="project-links-row">
+          <a href={proj.live} target="_blank" rel="noopener noreferrer" className="icon-btn" title="Live">↗</a>
+          <a href={proj.code} target="_blank" rel="noopener noreferrer" className="icon-btn" title="Code">⌥</a>
+        </div>
+      </div>
+      <h3 className="project-title">{proj.title}</h3>
+      <p className="project-desc">{proj.desc}</p>
+      <div className="tech-stack">
+        {proj.tech.map(t => <span key={t} className="tech-tag">{t}</span>)}
+      </div>
+      <div className="project-ctas">
+        <a href={proj.live} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">Live Demo ↗</a>
+        <a href={proj.code} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-sm">GitHub</a>
+      </div>
+    </div>
+  );
+}
+
+/* ══════════════════════════════
    PROJECTS
 ══════════════════════════════ */
 function Projects() {
@@ -224,31 +278,7 @@ function Projects() {
 
       <div className="project-grid">
         {projects.map((proj, i) => (
-          <div key={proj.num} className="project-card" style={{ animationDelay: `${i * 0.15}s` }}>
-            {proj.image && (
-              <div className="project-banner-wrap">
-                <img src={proj.image} alt={proj.title} className="project-banner" loading="lazy"
-                  onError={e => { e.currentTarget.parentElement.style.display='none'; }} />
-                <div className="project-banner-overlay" />
-              </div>
-            )}
-            <div className="project-card-header">
-              <span className="project-num">Project {proj.num}</span>
-              <div className="project-links-row">
-                <a href={proj.live} target="_blank" rel="noopener noreferrer" className="icon-btn" title="Live">↗</a>
-                <a href={proj.code} target="_blank" rel="noopener noreferrer" className="icon-btn" title="Code">⌥</a>
-              </div>
-            </div>
-            <h3 className="project-title">{proj.title}</h3>
-            <p className="project-desc">{proj.desc}</p>
-            <div className="tech-stack">
-              {proj.tech.map(t => <span key={t} className="tech-tag">{t}</span>)}
-            </div>
-            <div className="project-ctas">
-              <a href={proj.live} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">Live Demo ↗</a>
-              <a href={proj.code} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-sm">GitHub</a>
-            </div>
-          </div>
+          <ProjectCard key={proj.num} proj={proj} index={i} />
         ))}
       </div>
     </section>

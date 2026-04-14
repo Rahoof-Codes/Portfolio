@@ -1071,6 +1071,33 @@ footer p strong { color: rgba(255,255,255,0.6); }
 }
 
 /* ══════════════════════════════
+   PROJECT CARD — CHARACTER EFFECT
+   Slides in from left on hover/touch
+══════════════════════════════ */
+.card-character {
+  position: absolute;
+  bottom: -4px;
+  left: 14px;
+  font-size: 4rem;
+  line-height: 1;
+  z-index: 3;
+  pointer-events: none;
+  /* Hidden state */
+  opacity: 0;
+  transform: translateX(-48px);
+  /* ← exact same timing used for banner scale */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.45));
+}
+
+/* Triggered by both CSS :hover (desktop) and React .is-active class (touch) */
+.project-card:hover .card-character,
+.project-card.is-active .card-character {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ══════════════════════════════
    UPCOMING PROJECTS — JARVIS
 ══════════════════════════════ */
 .upcoming-section { background: var(--bg); }
