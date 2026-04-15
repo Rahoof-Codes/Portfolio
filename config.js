@@ -80,7 +80,10 @@ const CONFIG = {
     {
       num: "02",
       title: "Tea Hub Billing App",
-      desc: "Mobile-friendly POS + inventory system for a tea & bakes shop. Features billing, receipt generation, stock tracking, and offline support via LocalStorage.",
+      desc: "A fast, mobile-first Point-of-Sale (POS) and billing web app designed to streamline daily transactions, track inventory, and manage revenue using a lightweight serverless backend.
+Demo Login:
+Username: admin
+Password: admin1234.",
       tech: ["HTML5", "CSS3", "JavaScript", "LocalStorage"],
       live: "https://billing-intwqo5y5-rahoofpros-projects.vercel.app/",
       code: "https://github.com/Rahoof-Codes/tea-hub-billing-app",
