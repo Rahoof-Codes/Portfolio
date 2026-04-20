@@ -9,9 +9,7 @@ const CONFIG = {
   title: "Aspiring Full Stack Developer",
   tagline: "Building the Web, One Project at a Time.",
   bio: [
-    "I'm a <strong>BCA student</strong> and passionate <strong>Frontend Developer</strong> from Tamil Nadu, now leveling up toward full-stack development.",
-    "I create responsive, user-friendly web apps — from static sites to practical tools with offline support and real-world integrations like WhatsApp ordering.",
-    "Open to <strong>freelancing</strong>, small business web solutions, collaborations, and learning opportunities."
+    "Hi, I'm Abdul Rahoof. I'm a second-year BCA student focused on full-stack web development. I spend my time working with React, Java, and JavaScript. A few real-world projects have been set up recently, like a bakery billing system and an online store. The main goal is to help local shops and schools go digital. Right now, I'm open to freelance work to keep building those solutions. When I'm not coding, I'm usually reading self-improvement books."
   ],
   heroDesc: "I build clean, responsive, and professional web apps that solve real-world problems. BCA student from Tamil Nadu leveling up every day.",
   badge: "Open to Freelancing & Collaborations",
@@ -96,6 +94,16 @@ const CONFIG = {
       code: "https://github.com/Rahoof-Codes/empire-construction",
       image: "images/construct.jpg",
       character: "👷",
+    },
+     {
+      num: "04",
+      title: "Doctor Appoinment",
+      desc: "🏥 A modern doctor appointment booking web app built with Next.js 14, Supabase & Tailwind CSS. Book appointments instantly via WhatsApp — no forms, no waiting rooms.",
+      tech: ["Next.js", "Typescript", "Tailwind CSS","Supabase"],
+      live: "https://doctor-appointmentin.vercel.app/",
+      code: "https://github.com/Rahoof-Codes/Doctor-Appointment.git",
+      image: "images/doctor.jpg",
+      character: "👨‍⚕️",
     },
   ],
   
