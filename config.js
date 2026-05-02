@@ -105,6 +105,16 @@ const CONFIG = {
       image: "images/doctor.jpg",
       character: "👨‍⚕️",
     },
+    {
+  num: "05",
+  title: "LexDesk",
+  desc: "⚖️ A full-stack advocate management suite to manage cases, hearings, billing & legal documents. Built with React, Node.js & PostgreSQL — deployed live.",
+  tech: ["React", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Prisma"],
+  live: "https://lexdesk-cyan.vercel.app",
+  code: "https://github.com/Rahoof-Codes/lexdesk",
+  image: "images/lexdesk.jpg",
+  character: "👨‍⚖️",
+},
   ],
   
 
