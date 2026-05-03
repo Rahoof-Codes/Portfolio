@@ -127,12 +127,12 @@ const CONFIG = {
     status: "In Progress",
     progress: 60, // percentage
     features: [
-      { icon: "🧠", title: "Local LLM Brain",     desc: "Ollama + 7B model (~5GB). Runs on my own CPU/GPU — thinks offline, zero cloud dependency." },
+      { icon: "🧠", title: "Local LLM Brain",     desc: "Gemma 4 - E 4B (~9.6GB). Runs on my own CPU/GPU — thinks offline, zero cloud dependency." },
       { icon: "🎙️", title: "Real Voice I/O",      desc: "Faster-Whisper for speech-to-text. Piper TTS speaks back. Feels like a real assistant." },
       { icon: "📱", title: "Tiny Mobile App",     desc: "Under 50MB APK. Just UI + voice capture. Sends to my VPS — no fat model on your phone." },
       { icon: "🔒", title: "Self-Hosted & Secure", desc: "My own VPS + GPU server. Auth-protected API. No subscriptions, no data sold. Ever." },
     ],
-    tech: ["Ollama", "LLaMA 7B", "Faster-Whisper", "Piper TTS", "Python", "REST API", "React Native", "VPS / GPU"],
+    tech: ["Ollama", "Gemma 4 - E 4B", "Faster-Whisper", "Piper TTS", "Python", "REST API", "React Native", "VPS / GPU"],
     github: "https://github.com/Rahoof-Codes",
   },
 };
