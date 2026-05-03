@@ -14,6 +14,7 @@ const CONFIG = {
   heroDesc: "I build clean, responsive, and professional web apps that solve real-world problems. BCA student from Tamil Nadu leveling up every day.",
   badge: "Open to Freelancing & Collaborations",
   photo: "images/rah.jpg",
+  photo2: "images/rahab.jpg",
 
   // ---------- Contact ----------
   contact: {
