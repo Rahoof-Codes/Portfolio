@@ -106,8 +106,9 @@ function Hero() {
           </div>
           <div className="hero-chips">
             <div className="chip chip-1">🌐 Web Dev</div>
-            <div className="chip chip-2">⚛️ React</div>
-            <div className="chip chip-3">📱 Mobile-First</div>
+            <div className="chip chip-2">   ⚛️ React</div>
+            <div className="chip chip-3"> 📱 Mobile-First</div>
+  
           </div>
         </div>
       </div>
