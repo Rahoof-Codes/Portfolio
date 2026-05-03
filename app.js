@@ -125,7 +125,7 @@ function Hero() {
 ══════════════════════════════ */
 function About() {
   const [ref, visible] = useReveal();
-  const { name, photo, tagline, bio } = CONFIG;
+  const { name, photo2, tagline, bio } = CONFIG;
 
   return (
     <section id="about" ref={ref} className={`section about-section${visible ? ' revealed' : ''}`}>
@@ -138,7 +138,7 @@ function About() {
       <div className="about-grid">
         <div className="about-photo-col">
           <div className="about-photo-wrap">
-            <img src={photo} alt={name} />
+            <img src={photo2} alt={name} />
             <div className="about-photo-accent" />
           </div>
           <div className="about-stat-row">
