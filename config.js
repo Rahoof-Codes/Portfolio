@@ -66,8 +66,18 @@ const CONFIG = {
 
   // ---------- Projects ----------
   projects: [
+     {
+  num: "01",
+  title: "ClientOS — CRM",
+  desc: "A private full-stack Client Management System built with React, Tailwind CSS 4.0, and Supabase. Features role-based access for Admin and Staff, dual client types (Monthly & One-Time), payment tracking, outstanding balance counter, and CSV export.",
+  tech: ["React", "Tailwind CSS 4", "Supabase", "PostgreSQL"],
+  live: "https://client-management-system-kohl-six.vercel.app",
+  code: "https://github.com/Rahoof-Codes/Client-Management-System",
+  image: "images/crm.jpg",
+  character: "🗂️",
+},
     {
-      num: "01",
+      num: "04",
       title: "Modern-Mart Textile",
       desc: "Serverless e-commerce site for a textile shop — clean UI, product catalog, and instant WhatsApp order redirection. Fully responsive & mobile-first.",
       tech: ["HTML5", "CSS3", "JavaScript"],
@@ -87,7 +97,7 @@ const CONFIG = {
       character: "🧾",
     },
     {
-      num: "03",
+      num: "05",
       title: "EMPIRE CONSTRUCTION",
       desc: "A front-end website template designed for a construction business, Empire Construction.",
       tech: ["HTML5", "CSS3", "JavaScript"],
@@ -96,18 +106,9 @@ const CONFIG = {
       image: "images/construct.jpg",
       character: "👷",
     },
-     {
-      num: "04",
-      title: "Doctor Appoinment",
-      desc: "🏥 A modern doctor appointment booking web app built with Next.js 14, Supabase & Tailwind CSS. Book appointments instantly via WhatsApp — no forms, no waiting rooms.",
-      tech: ["Next.js", "Typescript", "Tailwind CSS","Supabase"],
-      live: "https://doctor-appointmentin.vercel.app/",
-      code: "https://github.com/Rahoof-Codes/Doctor-Appointment.git",
-      image: "images/doctor.jpg",
-      character: "👨‍⚕️",
-    },
+   
     {
-  num: "05",
+  num: "04",
   title: "LexDesk",
   desc: "⚖️ A full-stack advocate management suite to manage cases, hearings, billing & legal documents. Built with React, Node.js & PostgreSQL — deployed live.",
   tech: ["React", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Prisma"],
