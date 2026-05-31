@@ -76,8 +76,18 @@ const CONFIG = {
   image: "images/crm.jpg",
   character: "🗂️",
 },
+         {
+  num: "02",
+  title: "Ai-Chatbot",
+  desc: "A Fully functioning ai-chatbot built with gpt-120b model by open router.ai",
+  tech: ["Next.js","React", "Tailwind CSS 4", "firebase", "gpt-120b"],
+  live: "https://aichatbotin.vercel.app",
+  code: "https://github.com/Rahoof-Codes/Chatbot",
+  image: "images/cbot.jpg",
+  character: "🤖",
+},
     {
-      num: "04",
+      num: "03",
       title: "Modern-Mart Textile",
       desc: "Serverless e-commerce site for a textile shop — clean UI, product catalog, and instant WhatsApp order redirection. Fully responsive & mobile-first.",
       tech: ["HTML5", "CSS3", "JavaScript"],
@@ -87,7 +97,7 @@ const CONFIG = {
       character: "🧑‍💼",
     },
     {
-      num: "02",
+      num: "04",
       title: "Tea Hub Billing App",
       desc: "A fast, mobile-first Point-of-Sale (POS) and billing web app designed to streamline daily transactions, track inventory, and manage revenue using a lightweight serverless backend.[ Username:admin ; Password:admin1234 ].",
       tech: ["HTML5", "CSS3", "JavaScript", "LocalStorage"],
@@ -108,7 +118,7 @@ const CONFIG = {
     },
    
     {
-  num: "04",
+  num: "06",
   title: "LexDesk",
   desc: "⚖️ A full-stack advocate management suite to manage cases, hearings, billing & legal documents. Built with React, Node.js & PostgreSQL — deployed live.",
   tech: ["React", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Prisma"],
