@@ -81,7 +81,7 @@ const CONFIG = {
   title: "Ai-Chatbot",
   desc: "A Fully functioning ai-chatbot built with gpt-120b model by open router.ai",
   tech: ["Next.js","React", "Tailwind CSS 4", "firebase", "gpt-120b"],
-  live: "https://aichatbotin.vercel.app",
+  live: "https://ai-chatbotin.vercel.app",
   code: "https://github.com/Rahoof-Codes/Chatbot",
   image: "images/cbot.jpg",
   character: "🤖",
