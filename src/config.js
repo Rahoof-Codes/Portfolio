@@ -2,7 +2,7 @@
 //  config.js — Edit YOUR info here. Don't touch app.js!
 // ============================================================
 
-const CONFIG = {
+export const CONFIG = {
 
   // ---------- Personal Info ----------
   name: "Abdul Rahoof",

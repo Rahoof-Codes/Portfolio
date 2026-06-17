@@ -1,6 +1,5 @@
-// app.js — Redesigned components. Edit your info in config.js!
-
-const { useState, useEffect, useRef } = React;
+import React, { useState, useEffect, useRef } from 'react';
+import { CONFIG } from './config';
 
 /* ── Utility: use intersection observer for scroll reveals ── */
 function useReveal() {
@@ -20,7 +19,7 @@ function useReveal() {
 /* ══════════════════════════════
    NAVBAR
 ══════════════════════════════ */
-function Navbar() {
+function Navbar({ darkMode, toggleTheme }) {
   const links = ['Home','About','Skills','Projects','Upcoming','Contact'];
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive]     = useState('home');
@@ -51,7 +50,12 @@ function Navbar() {
           </a>
         ))}
       </div>
-      <a href={`mailto:${CONFIG.contact.email}`} className="nav-cta">Hire Me</a>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <button onClick={toggleTheme} className="theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">
+          {darkMode ? '☀️' : '🌙'}
+        </button>
+        <a href={`mailto:${CONFIG.contact.email}`} className="nav-cta">Hire Me</a>
+      </div>
     </nav>
   );
 }
@@ -172,6 +176,201 @@ function About() {
 }
 
 /* ══════════════════════════════
+   ASK J.A.R.V.I.S CHATBOT & SCROLL PROGRESS
+══════════════════════════════ */
+const JARVIS_QA = [
+  {
+    question: "Who is Abdul Rahoof?",
+    answer: "Abdul Rahoof is a Full Stack Developer and BCA student from Tamil Nadu. He specializes in React, Node.js, Java, and JavaScript, building digital solutions for shops, clients, and schools."
+  },
+  {
+    question: "Is Abdul open for freelance work?",
+    answer: "Yes! Abdul is currently open to freelancing & collaboration. You can hire him to build web apps, POS systems, or custom client portals. Contact him at rahoof.codes@gmail.com."
+  },
+  {
+    question: "What is his biggest upcoming project?",
+    answer: "That would be me, J.A.R.V.I.S! A self-hosted, offline AI assistant running Gemma 4 (4B parameters) locally for speech capture and text-to-speech, completely private and secure."
+  },
+  {
+    question: "Show me his top project.",
+    answer: "His featured project is 'ClientOS — CRM', a full-stack Client Management System built with React, Supabase, and Tailwind CSS 4, supporting role-based access, invoices, and payment tracking."
+  }
+];
+
+const JarvisChatbot = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState([
+    { sender: 'jarvis', text: "Hello! I am J.A.R.V.I.S, Abdul's virtual assistant. How can I help you today?" }
+  ]);
+  const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages, isTyping]);
+
+  const handleSend = (textToSend) => {
+    if (!textToSend.trim()) return;
+    
+    const newMessages = [...messages, { sender: 'user', text: textToSend }];
+    setMessages(newMessages);
+    setInput('');
+    setIsTyping(true);
+
+    setTimeout(() => {
+      let reply = "I am J.A.R.V.I.S, Abdul's assistant. Try asking me about his skills, projects, education, or freelance availability!";
+      const query = textToSend.toLowerCase();
+
+      if (query.includes('who') || query.includes('abdul') || query.includes('rahoof')) {
+        reply = "Abdul Rahoof is an aspiring Full Stack Developer and BCA student from Tamil Nadu. He loves building responsive web apps with React, Tailwind CSS, and Node.js.";
+      } else if (query.includes('hire') || query.includes('freelance') || query.includes('work') || query.includes('open')) {
+        reply = "Yes, Abdul is open to freelancing, internships, and collaborations! You can contact him directly at rahoof.codes@gmail.com.";
+      } else if (query.includes('skills') || query.includes('know') || query.includes('languages') || query.includes('tech')) {
+        reply = "Abdul's core skills include React, JavaScript, HTML5/CSS3, Node.js, Express, Java, PostgreSQL, and Git/GitHub.";
+      } else if (query.includes('project') || query.includes('built') || query.includes('work')) {
+        reply = "Abdul has built ClientOS (CRM), LexDesk (advocate suite), AI Chatbots, Tea Hub POS Billing, and Modern-Mart Textile. Check them out in the Projects section!";
+      } else if (query.includes('study') || query.includes('college') || query.includes('bca') || query.includes('education')) {
+        reply = "Abdul is pursuing a Bachelor of Computer Applications (BCA) at Government Arts and Science College in Oddanchathram, Tamil Nadu.";
+      } else if (query.includes('jarvis')) {
+        reply = "I'm named after J.A.R.V.I.S (Abdul's upcoming voice-controlled local AI assistant project), running Gemma 4 offline on CPU/GPU!";
+      }
+
+      setMessages(prev => [...prev, { sender: 'jarvis', text: reply }]);
+      setIsTyping(false);
+    }, 1200);
+  };
+
+  const handleChipClick = (question, answer) => {
+    setMessages(prev => [...prev, { sender: 'user', text: question }]);
+    setIsTyping(true);
+
+    setTimeout(() => {
+      setMessages(prev => [...prev, { sender: 'jarvis', text: answer }]);
+      setIsTyping(false);
+    }, 1000);
+  };
+
+  return (
+    <div className="jarvis-chatbot">
+      <button className="jarvis-toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Chat with Jarvis">
+        {isOpen ? '❌' : '🤖'}
+      </button>
+
+      <div className={`jarvis-chat-window ${isOpen ? 'open' : ''}`}>
+        <div className="jarvis-chat-header">
+          <div className="jarvis-header-info">
+            <div className="jarvis-avatar">
+              ⚡
+              <div className="jarvis-avatar-dot" />
+            </div>
+            <div className="jarvis-header-text">
+              <h5>J.A.R.V.I.S</h5>
+              <span>Assistant • Online</span>
+            </div>
+          </div>
+          <button className="jarvis-close-btn" onClick={() => setIsOpen(false)}>×</button>
+        </div>
+
+        <div className="jarvis-chat-messages">
+          {messages.map((m, idx) => (
+            <div key={idx} className={`jarvis-msg ${m.sender}`}>
+              {m.text}
+            </div>
+          ))}
+          {isTyping && (
+            <div className="jarvis-msg jarvis" style={{ display: 'flex', gap: '4px', padding: '12px 16px' }}>
+              <span className="dot" style={{ animation: 'pulse-dot 1.2s infinite', animationDelay: '0s' }}>•</span>
+              <span className="dot" style={{ animation: 'pulse-dot 1.2s infinite', animationDelay: '0.2s' }}>•</span>
+              <span className="dot" style={{ animation: 'pulse-dot 1.2s infinite', animationDelay: '0.4s' }}>•</span>
+            </div>
+          )}
+          <div ref={messagesEndRef} />
+        </div>
+
+        <div className="jarvis-chat-chips">
+          {JARVIS_QA.map((qa, idx) => (
+            <button key={idx} className="jarvis-chip" onClick={() => handleChipClick(qa.question, qa.answer)}>
+              {qa.question}
+            </button>
+          ))}
+        </div>
+
+        <form className="jarvis-chat-input-area" onSubmit={(e) => { e.preventDefault(); handleSend(input); }}>
+          <input 
+            type="text" 
+            placeholder="Type a question..." 
+            className="jarvis-chat-input"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            disabled={isTyping}
+          />
+          <button type="submit" className="jarvis-send-btn" disabled={isTyping}>
+            ➔
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+const ScrollToTop = () => {
+  const [visible, setVisible] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
+      
+      if (totalHeight > 0) {
+        setScrollProgress((scrolled / totalHeight) * 100);
+      }
+      
+      if (scrolled > 300) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const radius = 20;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (scrollProgress / 100) * circumference;
+
+  return (
+    <div className={`scroll-to-top-wrap ${visible ? 'visible' : ''}`}>
+      <svg className="scroll-progress-svg">
+        <circle className="scroll-progress-bg" cx="24" cy="24" r={radius} />
+        <circle 
+          className="scroll-progress-bar" 
+          cx="24" 
+          cy="24" 
+          r={radius} 
+          style={{ strokeDasharray: circumference, strokeDashoffset }}
+        />
+      </svg>
+      <button className="scroll-to-top-btn" onClick={scrollToTop} aria-label="Scroll to top">
+        ↑
+      </button>
+    </div>
+  );
+};
+
+/* ══════════════════════════════
    SKILLS
 ══════════════════════════════ */
 function Skills() {
@@ -267,6 +466,33 @@ function ProjectCard({ proj, index }) {
 function Projects() {
   const [ref, visible] = useReveal();
   const { projects } = CONFIG;
+  const [filter, setFilter] = useState('all');
+  const [search, setSearch] = useState('');
+
+  const filteredProjects = projects.filter(proj => {
+    const matchesSearch = proj.title.toLowerCase().includes(search.toLowerCase()) ||
+                          proj.desc.toLowerCase().includes(search.toLowerCase()) ||
+                          proj.tech.some(t => t.toLowerCase().includes(search.toLowerCase()));
+
+    if (!matchesSearch) return false;
+    if (filter === 'all') return true;
+
+    const title = proj.title.toLowerCase();
+    const techStr = proj.tech.join(' ').toLowerCase();
+
+    if (filter === 'fullstack') {
+      return techStr.includes('supabase') || techStr.includes('node.js') || techStr.includes('next.js') || techStr.includes('firebase') || techStr.includes('postgresql');
+    }
+    if (filter === 'frontend') {
+      const isFullStack = techStr.includes('supabase') || techStr.includes('node.js') || techStr.includes('next.js') || techStr.includes('firebase') || techStr.includes('postgresql');
+      const isTool = title.includes('billing') || title.includes('pos') || techStr.includes('localstorage');
+      return !isFullStack && !isTool;
+    }
+    if (filter === 'tools') {
+      return title.includes('billing') || title.includes('crm') || techStr.includes('localstorage') || title.includes('system');
+    }
+    return true;
+  });
 
   return (
     <section id="projects" ref={ref} className={`section projects-section${visible ? ' revealed' : ''}`}>
@@ -277,11 +503,36 @@ function Projects() {
       </div>
       <h2 className="section-title">What I've Built</h2>
 
+      <div className="projects-header-controls">
+        <div className="projects-filter-pills">
+          <button className={`filter-pill ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>All</button>
+          <button className={`filter-pill ${filter === 'fullstack' ? 'active' : ''}`} onClick={() => setFilter('fullstack')}>Full Stack</button>
+          <button className={`filter-pill ${filter === 'frontend' ? 'active' : ''}`} onClick={() => setFilter('frontend')}>Frontend</button>
+          <button className={`filter-pill ${filter === 'tools' ? 'active' : ''}`} onClick={() => setFilter('tools')}>Tools & POS</button>
+        </div>
+        <div className="projects-search-box">
+          <span className="projects-search-icon">🔍</span>
+          <input 
+            type="text" 
+            placeholder="Search projects or tech..." 
+            className="projects-search-input"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+      </div>
+
       <div className="project-grid">
-        {projects.map((proj, i) => (
+        {filteredProjects.map((proj, i) => (
           <ProjectCard key={proj.num} proj={proj} index={i} />
         ))}
       </div>
+      {filteredProjects.length === 0 && (
+        <div style={{ textAlign: 'center', padding: '40px 0', color: 'var(--text-muted)' }}>
+          <p style={{ fontSize: '1.2rem', marginBottom: '8px' }}>No projects found matching your search.</p>
+          <button className="btn btn-outline btn-sm" onClick={() => { setSearch(''); setFilter('all'); }}>Reset Filters</button>
+        </div>
+      )}
     </section>
   );
 }
@@ -317,12 +568,19 @@ function Education() {
 /* ══════════════════════════════
    CONTACT
 ══════════════════════════════ */
-function Contact() {
+function Contact({ onCopyEmail }) {
   const [ref, visible] = useReveal();
   const { contact } = CONFIG;
 
+  const handleCardClick = (e, isEmail) => {
+    if (isEmail) {
+      e.preventDefault();
+      onCopyEmail();
+    }
+  };
+
   const cards = [
-    { icon: '✉', label: 'EMAIL',    value: contact.email,        href: `mailto:${contact.email}` },
+    { icon: '✉', label: 'EMAIL (CLICK TO COPY)', value: contact.email, href: `mailto:${contact.email}`, isEmail: true },
     { icon: '⌥', label: 'GITHUB',   value: contact.githubUsername, href: contact.github },
     { icon: 'in', label: 'LINKEDIN', value: contact.linkedinName,  href: contact.linkedin },
   ];
@@ -339,7 +597,7 @@ function Contact() {
         <div className="contact-left">
           <h2 className="section-title contact-title">Let's Work<br/>Together.</h2>
           <p className="contact-desc">Have a project idea or just want to say hello? I'm always open to conversations and new opportunities.</p>
-          <a href={`mailto:${contact.email}`} className="btn btn-primary contact-btn">
+          <a href={`mailto:${contact.email}`} className="btn btn-primary contact-btn" onClick={(e) => handleCardClick(e, true)}>
             Send Me a Message ↗
           </a>
         </div>
@@ -347,6 +605,7 @@ function Contact() {
         <div className="contact-right">
           {cards.map((c, i) => (
             <a key={i} href={c.href} target={c.href.startsWith('http') ? '_blank' : '_self'}
+               onClick={(e) => handleCardClick(e, c.isEmail)}
                rel="noopener noreferrer" className="contact-card">
               <div className="contact-card-icon">{c.icon}</div>
               <div>
@@ -480,19 +739,51 @@ function UpcomingProjects() {
    APP
 ══════════════════════════════ */
 function App() {
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    return saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  });
+  const [copyStatus, setCopyStatus] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [darkMode]);
+
+  const toggleTheme = () => setDarkMode(!darkMode);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(CONFIG.contact.email).then(() => {
+      setCopyStatus(true);
+      setTimeout(() => setCopyStatus(false), 2000);
+    });
+  };
+
   return (
     <React.Fragment>
-      <Navbar />
+      <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
       <Hero />
       <About />
       <Skills />
       <Projects />
       <Education />
       <UpcomingProjects />
-      <Contact />
+      <Contact onCopyEmail={handleCopyEmail} />
       <Footer />
+
+      <JarvisChatbot />
+      <ScrollToTop />
+      
+      <div className={`copy-tooltip ${copyStatus ? 'visible' : ''}`}>
+        <span>✉️ Email copied to clipboard!</span>
+      </div>
     </React.Fragment>
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+export default App;
