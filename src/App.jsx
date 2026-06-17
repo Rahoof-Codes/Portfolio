@@ -20,14 +20,14 @@ function useReveal() {
    NAVBAR
 ══════════════════════════════ */
 function Navbar({ darkMode, toggleTheme }) {
-  const links = ['Home','About','Skills','Projects','Upcoming','Contact'];
+  const links = ['Home', 'About', 'Skills', 'Projects', 'Upcoming', 'Contact'];
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive]     = useState('home');
+  const [active, setActive] = useState('home');
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
-      const ids = ['home','about','skills','projects','upcoming','contact'];
+      const ids = ['home', 'about', 'skills', 'projects', 'upcoming', 'contact'];
       for (let i = ids.length - 1; i >= 0; i--) {
         const el = document.getElementById(ids[i]);
         if (el && window.scrollY >= el.offsetTop - 110) { setActive(ids[i]); break; }
@@ -45,7 +45,7 @@ function Navbar({ darkMode, toggleTheme }) {
       <div className="nav-links">
         {links.map(l => (
           <a key={l} href={`#${l.toLowerCase()}`}
-             className={active === l.toLowerCase() ? 'active' : ''}>
+            className={active === l.toLowerCase() ? 'active' : ''}>
             {l}
           </a>
         ))}
@@ -66,7 +66,7 @@ function Navbar({ darkMode, toggleTheme }) {
 function Hero() {
   const { name, title, heroDesc, badge, contact } = CONFIG;
   const first = name.split(' ')[0];
-  const last  = name.split(' ')[1];
+  const last = name.split(' ')[1];
 
   return (
     <section id="home" className="hero">
@@ -104,15 +104,19 @@ function Hero() {
 
         <div className="hero-right fade-up delay-3">
           <div className="avatar-frame">
-            <img src={CONFIG.photo} alt={name} className="avatar-img" />
-            <div className="avatar-ring" />
+            <div className="avatar-glow" />
             <div className="avatar-blob" />
-          </div>
-          <div className="hero-chips">
+            <div className="avatar-cyber-grid" />
+            <div className="avatar-bracket tl" />
+            <div className="avatar-bracket tr" />
+            <div className="avatar-bracket bl" />
+            <div className="avatar-bracket br" />
+            <div className="avatar-img-wrap">
+              <img src={CONFIG.photo} alt={name} className="avatar-img" />
+            </div>
             <div className="chip chip-1">🌐 Web Dev</div>
-            <div className="chip chip-2">   ⚛️ React</div>
-            <div className="chip chip-3"> 📱 Mobile-First</div>
-  
+            <div className="chip chip-2">⚛️ React</div>
+            <div className="chip chip-3">📱 Mobile-First</div>
           </div>
         </div>
       </div>
@@ -147,9 +151,9 @@ function About() {
             <div className="about-photo-accent" />
           </div>
           <div className="about-stat-row">
-            <div className="about-stat"><span className="stat-n">2+</span><span className="stat-l">Years<br/>Learning</span></div>
-            <div className="about-stat"><span className="stat-n">5+</span><span className="stat-l">Projects<br/>Built</span></div>
-            <div className="about-stat"><span className="stat-n">3+</span><span className="stat-l">Happy<br/>Clients</span></div>
+            <div className="about-stat"><span className="stat-n">2+</span><span className="stat-l">Years<br />Learning</span></div>
+            <div className="about-stat"><span className="stat-n">5+</span><span className="stat-l">Projects<br />Built</span></div>
+            <div className="about-stat"><span className="stat-n">3+</span><span className="stat-l">Happy<br />Clients</span></div>
           </div>
         </div>
 
@@ -214,7 +218,7 @@ const JarvisChatbot = () => {
 
   const handleSend = (textToSend) => {
     if (!textToSend.trim()) return;
-    
+
     const newMessages = [...messages, { sender: 'user', text: textToSend }];
     setMessages(newMessages);
     setInput('');
@@ -256,14 +260,14 @@ const JarvisChatbot = () => {
   return (
     <div className="jarvis-chatbot">
       <button className="jarvis-toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Chat with Jarvis">
-        {isOpen ? '❌' : '🤖'}
+        {isOpen ? '❌' : '💬'}
       </button>
 
       <div className={`jarvis-chat-window ${isOpen ? 'open' : ''}`}>
         <div className="jarvis-chat-header">
           <div className="jarvis-header-info">
             <div className="jarvis-avatar">
-              ⚡
+              🔵
               <div className="jarvis-avatar-dot" />
             </div>
             <div className="jarvis-header-text">
@@ -299,9 +303,9 @@ const JarvisChatbot = () => {
         </div>
 
         <form className="jarvis-chat-input-area" onSubmit={(e) => { e.preventDefault(); handleSend(input); }}>
-          <input 
-            type="text" 
-            placeholder="Type a question..." 
+          <input
+            type="text"
+            placeholder="Type a question..."
             className="jarvis-chat-input"
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -324,18 +328,18 @@ const ScrollToTop = () => {
     const handleScroll = () => {
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrolled = window.scrollY;
-      
+
       if (totalHeight > 0) {
         setScrollProgress((scrolled / totalHeight) * 100);
       }
-      
+
       if (scrolled > 300) {
         setVisible(true);
       } else {
         setVisible(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -355,11 +359,11 @@ const ScrollToTop = () => {
     <div className={`scroll-to-top-wrap ${visible ? 'visible' : ''}`}>
       <svg className="scroll-progress-svg">
         <circle className="scroll-progress-bg" cx="24" cy="24" r={radius} />
-        <circle 
-          className="scroll-progress-bar" 
-          cx="24" 
-          cy="24" 
-          r={radius} 
+        <circle
+          className="scroll-progress-bar"
+          cx="24"
+          cy="24"
+          r={radius}
           style={{ strokeDasharray: circumference, strokeDashoffset }}
         />
       </svg>
@@ -389,7 +393,7 @@ function Skills() {
       <div className="skills-grid">
         {skills.map((group, i) => (
           <div key={group.title} className={`skill-card${group.highlight ? ' skill-highlight' : ''}`}
-               style={{ animationDelay: `${i * 0.1}s` }}>
+            style={{ animationDelay: `${i * 0.1}s` }}>
             <div className="skill-card-top">
               <span className="skill-icon">{group.icon}</span>
               <h4>{group.title}</h4>
@@ -433,7 +437,7 @@ function ProjectCard({ proj, index }) {
       {proj.image && (
         <div className="project-banner-wrap">
           <img src={proj.image} alt={proj.title} className="project-banner" loading="lazy"
-            onError={e => { e.currentTarget.parentElement.style.display='none'; }} />
+            onError={e => { e.currentTarget.parentElement.style.display = 'none'; }} />
           <div className="project-banner-overlay" />
           {proj.character && (
             <span className="card-character" aria-hidden="true">{proj.character}</span>
@@ -471,8 +475,8 @@ function Projects() {
 
   const filteredProjects = projects.filter(proj => {
     const matchesSearch = proj.title.toLowerCase().includes(search.toLowerCase()) ||
-                          proj.desc.toLowerCase().includes(search.toLowerCase()) ||
-                          proj.tech.some(t => t.toLowerCase().includes(search.toLowerCase()));
+      proj.desc.toLowerCase().includes(search.toLowerCase()) ||
+      proj.tech.some(t => t.toLowerCase().includes(search.toLowerCase()));
 
     if (!matchesSearch) return false;
     if (filter === 'all') return true;
@@ -512,9 +516,9 @@ function Projects() {
         </div>
         <div className="projects-search-box">
           <span className="projects-search-icon">🔍</span>
-          <input 
-            type="text" 
-            placeholder="Search projects or tech..." 
+          <input
+            type="text"
+            placeholder="Search projects or tech..."
             className="projects-search-input"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -581,8 +585,8 @@ function Contact({ onCopyEmail }) {
 
   const cards = [
     { icon: '✉', label: 'EMAIL (CLICK TO COPY)', value: contact.email, href: `mailto:${contact.email}`, isEmail: true },
-    { icon: '⌥', label: 'GITHUB',   value: contact.githubUsername, href: contact.github },
-    { icon: 'in', label: 'LINKEDIN', value: contact.linkedinName,  href: contact.linkedin },
+    { icon: '⌥', label: 'GITHUB', value: contact.githubUsername, href: contact.github },
+    { icon: 'in', label: 'LINKEDIN', value: contact.linkedinName, href: contact.linkedin },
   ];
 
   return (
@@ -595,7 +599,7 @@ function Contact({ onCopyEmail }) {
 
       <div className="contact-inner">
         <div className="contact-left">
-          <h2 className="section-title contact-title">Let's Work<br/>Together.</h2>
+          <h2 className="section-title contact-title">Let's Work<br />Together.</h2>
           <p className="contact-desc">Have a project idea or just want to say hello? I'm always open to conversations and new opportunities.</p>
           <a href={`mailto:${contact.email}`} className="btn btn-primary contact-btn" onClick={(e) => handleCardClick(e, true)}>
             Send Me a Message ↗
@@ -605,8 +609,8 @@ function Contact({ onCopyEmail }) {
         <div className="contact-right">
           {cards.map((c, i) => (
             <a key={i} href={c.href} target={c.href.startsWith('http') ? '_blank' : '_self'}
-               onClick={(e) => handleCardClick(e, c.isEmail)}
-               rel="noopener noreferrer" className="contact-card">
+              onClick={(e) => handleCardClick(e, c.isEmail)}
+              rel="noopener noreferrer" className="contact-card">
               <div className="contact-card-icon">{c.icon}</div>
               <div>
                 <div className="contact-card-label">{c.label}</div>
@@ -706,7 +710,7 @@ function UpcomingProjects() {
                 <div className="ujc-bar" style={{ width: `${wip.progress}%` }} />
               </div>
               <div className="ujc-steps">
-                {['Architecture','Local LLM','Voice I/O','Mobile App','Cloud Deploy'].map((s, idx) => (
+                {['Architecture', 'Local LLM', 'Voice I/O', 'Mobile App', 'Cloud Deploy'].map((s, idx) => (
                   <div key={s} className={`ujc-step${idx * 20 < wip.progress ? ' done' : ''}`}>
                     <div className="ujc-step-dot" />
                     <span>{s}</span>
@@ -740,22 +744,26 @@ function UpcomingProjects() {
 ══════════════════════════════ */
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    return saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const saved = localStorage.getItem('portfolio_theme_explicit');
+    return saved === 'dark';
   });
   const [copyStatus, setCopyStatus] = useState(false);
 
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add('dark-mode');
-      localStorage.setItem('theme', 'dark');
     } else {
       document.body.classList.remove('dark-mode');
-      localStorage.setItem('theme', 'light');
     }
   }, [darkMode]);
 
-  const toggleTheme = () => setDarkMode(!darkMode);
+  const toggleTheme = () => {
+    setDarkMode(prev => {
+      const next = !prev;
+      localStorage.setItem('portfolio_theme_explicit', next ? 'dark' : 'light');
+      return next;
+    });
+  };
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(CONFIG.contact.email).then(() => {
@@ -778,7 +786,7 @@ function App() {
 
       <JarvisChatbot />
       <ScrollToTop />
-      
+
       <div className={`copy-tooltip ${copyStatus ? 'visible' : ''}`}>
         <span>✉️ Email copied to clipboard!</span>
       </div>
