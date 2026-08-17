@@ -64,7 +64,7 @@ function Navbar({ darkMode, toggleTheme }) {
    HERO
 ══════════════════════════════ */
 function Hero() {
-  const { name, title, heroDesc, badge, contact } = CONFIG;
+  const { name, title, heroDesc, badge, contact, resumePath } = CONFIG;
   const first = name.split(' ')[0];
   const last = name.split(' ')[1];
 
@@ -97,6 +97,7 @@ function Hero() {
 
           <div className="hero-btns fade-up delay-5">
             <a href="#projects" className="btn btn-primary">View Projects ↗</a>
+            <a href={resumePath} download className="btn btn-resume">📄 Download Resume</a>
             <a href={contact.github} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">GitHub</a>
             <a href="#contact" className="btn btn-outline">Contact Me</a>
           </div>
@@ -114,9 +115,9 @@ function Hero() {
             <div className="avatar-img-wrap">
               <img src={CONFIG.photo} alt={name} className="avatar-img" />
             </div>
-            <div className="chip chip-1">🌐 Web Dev</div>
-            <div className="chip chip-2">⚛️ React</div>
-            <div className="chip chip-3">📱 Mobile-First</div>
+            <div className="chip chip-1">🤖 AI Engineer</div>
+            <div className="chip chip-2">🧠 LangGraph</div>
+            <div className="chip chip-3">☁️ AWS</div>
           </div>
         </div>
       </div>
@@ -167,10 +168,11 @@ function About() {
             <div className="detail-pill"><span>📍</span> Tamil Nadu, India</div>
             <div className="detail-pill"><span>🎓</span> BCA Student</div>
             <div className="detail-pill"><span>💼</span> Open to Freelance</div>
-            <div className="detail-pill"><span>⚡</span> Full Stack Path</div>
+            <div className="detail-pill"><span>🤖</span> AI Engineer Path</div>
           </div>
           <div className="about-btns">
             <a href="#contact" className="btn btn-primary">Hire Me ↗</a>
+            <a href={CONFIG.resumePath} download className="btn btn-resume">📄 Resume</a>
             <a href="#projects" className="btn btn-outline">My Work</a>
           </div>
         </div>
@@ -185,15 +187,15 @@ function About() {
 const JARVIS_QA = [
   {
     question: "Who is Abdul Rahoof?",
-    answer: "Abdul Rahoof is a Full Stack Developer and BCA student from Tamil Nadu. He specializes in React, Node.js, Java, and JavaScript, building digital solutions for shops, clients, and schools."
+    answer: "Abdul Rahoof is an AI Engineer & Full Stack Developer — a BCA student from Tamil Nadu. He's pivoting into AI engineering, building multi-agent LLM pipelines, guardrails, and cloud-native AI systems on AWS."
   },
   {
     question: "Is Abdul open for freelance work?",
-    answer: "Yes! Abdul is currently open to freelancing & collaboration. You can hire him to build web apps, POS systems, or custom client portals. Contact him at rahoof.codes@gmail.com."
+    answer: "Yes! Abdul is open to freelancing, internships & collaborations — especially in AI/ML engineering, full-stack web apps, and cloud infrastructure. Reach him at rahoof.codes@gmail.com."
   },
   {
     question: "What is his biggest upcoming project?",
-    answer: "That would be me, J.A.R.V.I.S! A self-hosted, offline AI assistant running Gemma 4 (4B parameters) locally for speech capture and text-to-speech, completely private and secure."
+    answer: "His flagship project is the Multi-Agent AI Research Platform — a 4-agent LangGraph pipeline with AWS Bedrock Guardrails, a 3-tier memory system (Redis STM, pgvector LTM, semantic cache), and a PyRIT red-team dashboard for adversarial testing."
   },
   {
     question: "Show me his top project.",
@@ -204,7 +206,7 @@ const JARVIS_QA = [
 const JarvisChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'jarvis', text: "Hello! I am J.A.R.V.I.S, Abdul's virtual assistant. How can I help you today?" }
+    { sender: 'jarvis', text: "Hello! I'm Abdul's virtual assistant. How can I help you today?" }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -225,21 +227,23 @@ const JarvisChatbot = () => {
     setIsTyping(true);
 
     setTimeout(() => {
-      let reply = "I am J.A.R.V.I.S, Abdul's assistant. Try asking me about his skills, projects, education, or freelance availability!";
+      let reply = "I'm Abdul's assistant. Try asking me about his AI projects, skills, education, or freelance availability!";
       const query = textToSend.toLowerCase();
 
       if (query.includes('who') || query.includes('abdul') || query.includes('rahoof')) {
-        reply = "Abdul Rahoof is an aspiring Full Stack Developer and BCA student from Tamil Nadu. He loves building responsive web apps with React, Tailwind CSS, and Node.js.";
+        reply = "Abdul Rahoof is an AI Engineer & Full Stack Developer, and a BCA student from Tamil Nadu. He's moving into AI engineering — building multi-agent LLM pipelines, guardrails, and production AI systems on AWS.";
       } else if (query.includes('hire') || query.includes('freelance') || query.includes('work') || query.includes('open')) {
-        reply = "Yes, Abdul is open to freelancing, internships, and collaborations! You can contact him directly at rahoof.codes@gmail.com.";
+        reply = "Yes, Abdul is open to freelancing, internships, and collaborations — especially in AI/ML engineering and full-stack development! Contact him at rahoof.codes@gmail.com.";
       } else if (query.includes('skills') || query.includes('know') || query.includes('languages') || query.includes('tech')) {
-        reply = "Abdul's core skills include React, JavaScript, HTML5/CSS3, Node.js, Express, Java, PostgreSQL, and Git/GitHub.";
+        reply = "Abdul's core skills include LangGraph, LangSmith, AWS Bedrock, React, JavaScript, Node.js, PostgreSQL, Terraform, and GitHub Actions CI/CD.";
       } else if (query.includes('project') || query.includes('built') || query.includes('work')) {
-        reply = "Abdul has built ClientOS (CRM), LexDesk (advocate suite), AI Chatbots, Tea Hub POS Billing, and Modern-Mart Textile. Check them out in the Projects section!";
+        reply = "Abdul has built ClientOS (CRM), Tea Hub POS Billing, Modern-Mart Textile, and Empire Construction. He's currently building a Multi-Agent AI Research Platform. Check them out in the Projects section!";
       } else if (query.includes('study') || query.includes('college') || query.includes('bca') || query.includes('education')) {
         reply = "Abdul is pursuing a Bachelor of Computer Applications (BCA) at Government Arts and Science College in Oddanchathram, Tamil Nadu.";
-      } else if (query.includes('jarvis')) {
-        reply = "I'm named after J.A.R.V.I.S (Abdul's upcoming voice-controlled local AI assistant project), running Gemma 4 offline on CPU/GPU!";
+      } else if (query.includes('ai') || query.includes('agent') || query.includes('llm') || query.includes('research')) {
+        reply = "Abdul's flagship project is the Multi-Agent AI Research Platform — a 4-agent LangGraph pipeline with AWS Bedrock Guardrails, Redis/pgvector memory, semantic caching, and a PyRIT red-team dashboard. Full infra on AWS with Terraform + GitHub Actions CI/CD.";
+      } else if (query.includes('resume') || query.includes('cv') || query.includes('download')) {
+        reply = "You can download Abdul's resume using the 'Download Resume' button in the Hero or About section at the top of the page!";
       }
 
       setMessages(prev => [...prev, { sender: 'jarvis', text: reply }]);
@@ -260,7 +264,11 @@ const JarvisChatbot = () => {
   return (
     <div className="jarvis-chatbot">
       <button className="jarvis-toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Chat with Jarvis">
-        {isOpen ? '❌' : '💬'}
+        {isOpen ? (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        ) : (
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/></svg>
+        )}
       </button>
 
       <div className={`jarvis-chat-window ${isOpen ? 'open' : ''}`}>
@@ -427,7 +435,7 @@ function ProjectCard({ proj, index }) {
 
   return (
     <div
-      className={`project-card${active ? ' is-active' : ''}`}
+      className={`project-card${active ? ' is-active' : ''}${proj.completed ? ' completed-card' : ''}`}
       style={{ animationDelay: `${index * 0.15}s` }}
       onMouseEnter={() => setActive(true)}
       onMouseLeave={() => setActive(false)}
@@ -439,6 +447,9 @@ function ProjectCard({ proj, index }) {
           <img src={proj.image} alt={proj.title} className="project-banner" loading="lazy"
             onError={e => { e.currentTarget.parentElement.style.display = 'none'; }} />
           <div className="project-banner-overlay" />
+          {proj.completed && (
+            <span className="completed-badge">✅ Completed</span>
+          )}
           {proj.character && (
             <span className="card-character" aria-hidden="true">{proj.character}</span>
           )}
@@ -447,7 +458,7 @@ function ProjectCard({ proj, index }) {
       <div className="project-card-header">
         <span className="project-num">Project {proj.num}</span>
         <div className="project-links-row">
-          <a href={proj.live} target="_blank" rel="noopener noreferrer" className="icon-btn" title="Live">↗</a>
+          {proj.live && <a href={proj.live} target="_blank" rel="noopener noreferrer" className="icon-btn" title="Live">↗</a>}
           <a href={proj.code} target="_blank" rel="noopener noreferrer" className="icon-btn" title="Code">⌥</a>
         </div>
       </div>
@@ -457,7 +468,11 @@ function ProjectCard({ proj, index }) {
         {proj.tech.map(t => <span key={t} className="tech-tag">{t}</span>)}
       </div>
       <div className="project-ctas">
-        <a href={proj.live} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">Live Demo ↗</a>
+        {proj.live ? (
+          <a href={proj.live} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">Live Demo ↗</a>
+        ) : (
+          <span className="btn btn-primary btn-sm" style={{ opacity: 0.5, cursor: 'default' }}>Private Project</span>
+        )}
         <a href={proj.code} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-sm">GitHub</a>
       </div>
     </div>
@@ -666,7 +681,7 @@ function UpcomingProjects() {
 
         {/* BG image */}
         <div className="ujc-bg">
-          <img src="images/jarvis.jpg" alt="JARVIS AI" className="ujc-bg-img" />
+          <img src="images/ai-research-platform.jpg" alt="Multi-Agent AI Research Platform" className="ujc-bg-img" />
           <div className="ujc-overlay" />
           <div className="ujc-scanlines" />
           {/* Floating glow orb */}
@@ -710,7 +725,7 @@ function UpcomingProjects() {
                 <div className="ujc-bar" style={{ width: `${wip.progress}%` }} />
               </div>
               <div className="ujc-steps">
-                {['Architecture', 'Local LLM', 'Voice I/O', 'Mobile App', 'Cloud Deploy'].map((s, idx) => (
+                {['Agent Pipeline', 'Guardrails', 'Memory System', 'Red Teaming', 'CI/CD'].map((s, idx) => (
                   <div key={s} className={`ujc-step${idx * 20 < wip.progress ? ' done' : ''}`}>
                     <div className="ujc-step-dot" />
                     <span>{s}</span>

@@ -6,15 +6,16 @@ export const CONFIG = {
 
   // ---------- Personal Info ----------
   name: "Abdul Rahoof",
-  title: "Aspiring Full Stack Developer",
-  tagline: "Building the Web, One Project at a Time.",
+  title: "AI Engineer | Full Stack Developer",
+  tagline: "Building Intelligent Systems, One Agent at a Time.",
   bio: [
-    "Hi, I'm Abdul Rahoof. I'm a second-year BCA student focused on full-stack web development. I spend my time working with React, Java, and JavaScript. A few real-world projects have been set up recently, like a bakery billing system and an online store. The main goal is to help local shops and schools go digital. Right now, I'm open to freelance work to keep building those solutions. When I'm not coding, I'm usually reading self-improvement books."
+    "Hi, I'm Abdul Rahoof — a BCA student pivoting from full-stack web development into AI Engineering. I've shipped production React apps, CRM platforms, and POS systems for real clients. Now I'm channelling that engineering muscle into autonomous multi-agent pipelines, LLM guardrails, red-teaming, and cloud-native AI infrastructure on AWS. My goal: build AI systems that are not just smart, but safe, observable, and production-ready."
   ],
-  heroDesc: "I build clean, responsive, and professional web apps that solve real-world problems. BCA student from Tamil Nadu leveling up every day.",
-  badge: "Open to Freelancing & Collaborations",
+  heroDesc: "I architect production-grade AI systems — multi-agent pipelines, LLM guardrails, and cloud-native infrastructure on AWS. BCA student from Tamil Nadu leveling up every day.",
+  badge: "Moving to AI Engineer 🤖",
   photo: "images/rah.jpg",
   photo2: "images/rahab.jpg",
+  resumePath: "Abdul_Rahoof_Resume.docx",
 
   // ---------- Contact ----------
   contact: {
@@ -29,65 +30,55 @@ export const CONFIG = {
   education: {
     college: "Government Arts and Science College, Oddanchathram",
     degree: "Bachelor of Computer Applications (BCA) — Currently Pursuing",
-    focus: "Web Development, Programming Fundamentals & Building Practical Applications",
+    focus: "AI Engineering, Full-Stack Development & Building Production-Ready Systems",
   },
 
   // ---------- Skills ----------
   skills: [
     {
-      title: "Web Development",
-      icon: "🌐",
-      tags: ["HTML5", "CSS3", "JavaScript (ES6+)", "Responsive Design"],
-      highlight: false,
-      learning: false,
-    },
-    {
-      title: "Programming",
-      icon: "⚡",
-      tags: ["Problem Solving", "Logic Building"],
-      highlight: false,
-      learning: false,
-    },
-    {
-      title: "Tools & Deployment",
-      icon: "🛠️",
-      tags: ["Git & GitHub", "VS Code", "Vercel", "SPCK Editor"],
-      highlight: false,
-      learning: false,
-    },
-    {
-      title: "Currently Exploring",
-      icon: "🚀",
-      tags: ["React.js", "Backend Basics", "LocalStorage / Offline Apps"],
+      title: "AI & LLM Engineering",
+      icon: "🧠",
+      tags: ["LangGraph", "LangSmith", "AWS Bedrock", "Guardrails", "Red Teaming (PyRIT)"],
       highlight: true,
       learning: true,
+    },
+    {
+      title: "Web Development",
+      icon: "🌐",
+      tags: ["HTML5", "CSS3", "JavaScript (ES6+)", "React.js", "Responsive Design"],
+      highlight: false,
+      learning: false,
+    },
+    {
+      title: "Backend & Cloud",
+      icon: "☁️",
+      tags: ["Node.js", "Express", "PostgreSQL", "Supabase", "AWS", "Terraform"],
+      highlight: false,
+      learning: false,
+    },
+    {
+      title: "Tools & DevOps",
+      icon: "🛠️",
+      tags: ["Git & GitHub", "GitHub Actions CI/CD", "Docker", "VS Code", "Vercel"],
+      highlight: false,
+      learning: false,
     },
   ],
 
   // ---------- Projects ----------
   projects: [
-     {
-  num: "01",
-  title: "ClientOS — CRM",
-  desc: "A private full-stack Client Management System built with React, Tailwind CSS 4.0, and Supabase. Features role-based access for Admin and Staff, dual client types (Monthly & One-Time), payment tracking, outstanding balance counter, and CSV export.",
-  tech: ["React", "Tailwind CSS 4", "Supabase", "PostgreSQL"],
-  live: "https://client-management-system-kohl-six.vercel.app",
-  code: "https://github.com/Rahoof-Codes/Client-Management-System",
-  image: "images/crm.jpg",
-  character: "🗂️",
-},
-         {
-  num: "02",
-  title: "Ai-Chatbot",
-  desc: "A Fully functioning ai-chatbot built with gpt-120b model by open router.ai",
-  tech: ["Next.js","React", "Tailwind CSS 4", "firebase", "gpt-120b"],
-  live: "https://ai-chatbotin.vercel.app",
-  code: "https://github.com/Rahoof-Codes/Chatbot",
-  image: "images/cbot.jpg",
-  character: "🤖",
-},
     {
-      num: "03",
+      num: "01",
+      title: "ClientOS — CRM",
+      desc: "A private full-stack Client Management System built with React, Tailwind CSS 4.0, and Supabase. Features role-based access for Admin and Staff, dual client types (Monthly & One-Time), payment tracking, outstanding balance counter, and CSV export.",
+      tech: ["React", "Tailwind CSS 4", "Supabase", "PostgreSQL"],
+      live: "https://client-management-system-kohl-six.vercel.app",
+      code: "https://github.com/Rahoof-Codes/Client-Management-System",
+      image: "images/crm.jpg",
+      character: "🗂️",
+    },
+    {
+      num: "02",
       title: "Modern-Mart Textile",
       desc: "Serverless e-commerce site for a textile shop — clean UI, product catalog, and instant WhatsApp order redirection. Fully responsive & mobile-first.",
       tech: ["HTML5", "CSS3", "JavaScript"],
@@ -97,7 +88,7 @@ export const CONFIG = {
       character: "🧑‍💼",
     },
     {
-      num: "04",
+      num: "03",
       title: "Tea Hub Billing App",
       desc: "A fast, mobile-first Point-of-Sale (POS) and billing web app designed to streamline daily transactions, track inventory, and manage revenue using a lightweight serverless backend.[ Username:admin ; Password:admin1234 ].",
       tech: ["HTML5", "CSS3", "JavaScript", "LocalStorage"],
@@ -107,7 +98,7 @@ export const CONFIG = {
       character: "🧾",
     },
     {
-      num: "05",
+      num: "04",
       title: "EMPIRE CONSTRUCTION",
       desc: "A front-end website template designed for a construction business, Empire Construction.",
       tech: ["HTML5", "CSS3", "JavaScript"],
@@ -116,34 +107,34 @@ export const CONFIG = {
       image: "images/construct.jpg",
       character: "👷",
     },
-   
     {
-  num: "06",
-  title: "LexDesk",
-  desc: "⚖️ A full-stack advocate management suite to manage cases, hearings, billing & legal documents. Built with React, Node.js & PostgreSQL — deployed live.",
-  tech: ["React", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Prisma"],
-  live: "https://lexdesk-cyan.vercel.app",
-  code: "https://github.com/Rahoof-Codes/lexdesk",
-  image: "images/lexdesk.jpg",
-  character: "👨‍⚖️",
-},
+      num: "05",
+      title: "J.A.R.V.I.S — AI Assistant ✅",
+      desc: "A self-hosted, offline AI assistant running Gemma 4 (4B parameters) locally — real voice I/O with Faster-Whisper & Piper TTS, a tiny mobile app under 50MB, and a fully auth-protected VPS backend. Zero cloud dependency, zero data leaks. Project completed.",
+      tech: ["Ollama", "Gemma 4 - E 4B", "Faster-Whisper", "Piper TTS", "Python", "REST API", "React Native"],
+      live: "",
+      code: "https://github.com/Rahoof-Codes/JARVIS",
+      image: "images/jarvis.jpg",
+      character: "🤖",
+      completed: true,
+    },
   ],
   
 
   // ---------- What I'm Building (WIP) ----------
   wip: {
-    name: "J.A.R.V.I.S",
-    tagline: "My own Tony Stark AI. Private. Local. Real.",
-    description: "A personal AI assistant that runs offline on my machine for full privacy — no ChatGPT, no data leaks. On mobile, it hits my own cloud server so I control everything end to end.",
+    name: "Multi-Agent AI Research Platform",
+    tagline: "4-Agent Pipeline · AWS Guardrails · Red Teaming · Production-Grade",
+    description: "A production-grade autonomous research platform where a 4-agent LangGraph pipeline (Search → Summarize → Write → Verify) processes any topic end-to-end, with every request passing through AWS Bedrock Guardrails, a TensorZero LLM gateway with GPT-4o/Groq fallback, and a three-tier memory system — Redis session memory (STM), pgvector long-term memory (LTM), and semantic caching.",
     status: "In Progress",
-    progress: 60, // percentage
+    progress: 45, // percentage
     features: [
-      { icon: "🧠", title: "Local LLM Brain",     desc: "Gemma 4 - E 4B (~9.6GB). Runs on my own CPU/GPU — thinks offline, zero cloud dependency." },
-      { icon: "🎙️", title: "Real Voice I/O",      desc: "Faster-Whisper for speech-to-text. Piper TTS speaks back. Feels like a real assistant." },
-      { icon: "📱", title: "Tiny Mobile App",     desc: "Under 50MB APK. Just UI + voice capture. Sends to my VPS — no fat model on your phone." },
-      { icon: "🔒", title: "Self-Hosted & Secure", desc: "My own VPS + GPU server. Auth-protected API. No subscriptions, no data sold. Ever." },
+      { icon: "🤖", title: "4-Agent LangGraph Pipeline", desc: "Search → Summarize → Write → Verify. Fully autonomous end-to-end research with structured output." },
+      { icon: "🛡️", title: "AWS Bedrock Guardrails",     desc: "Every LLM call passes through content filters, PII redaction, and policy enforcement on AWS." },
+      { icon: "🧠", title: "3-Tier Memory System",       desc: "Redis STM for sessions, pgvector LTM for long-term recall, and semantic caching for speed." },
+      { icon: "🔴", title: "PyRIT Red Team Dashboard",   desc: "Continuous adversarial stress-testing: jailbreak, XPIA, crescendo, and skeleton key attacks." },
     ],
-    tech: ["Ollama", "Gemma 4 - E 4B", "Faster-Whisper", "Piper TTS", "Python", "REST API", "React Native", "VPS / GPU"],
+    tech: ["LangGraph", "LangSmith", "AWS Bedrock", "TensorZero", "GPT-4o", "Groq", "Redis", "pgvector", "PyRIT", "Terraform", "GitHub Actions"],
     github: "https://github.com/Rahoof-Codes",
   },
 };
