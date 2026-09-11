@@ -102,7 +102,7 @@ export default function ProjectModal({ project, onClose }) {
                 rel="noopener noreferrer"
                 className="btn btn-primary"
               >
-                <span>Live Demo</span>
+                <span>{project.liveLabel || 'Live Demo'}</span>
                 <ExternalLink size={16} />
               </a>
             ) : (

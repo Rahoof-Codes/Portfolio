@@ -43,6 +43,7 @@ export default function TerminalModal({ isOpen, onClose, toggleTheme, darkMode }
   • whoami      - View Abdul's profile and background
   • skills      - List technical skills & competencies
   • projects    - View shipped production systems
+  • solo        - Inspect Solo Leveling project
   • wip         - Inspect in-progress Multi-Agent AI Platform
   • contact     - Print contact credentials
   • theme       - Toggle UI theme (Dark/Light)
@@ -69,6 +70,14 @@ Focus: ${CONFIG.telemetry.currentFocus}`,
         .map((p) => `  [#${p.num}] ${p.title} (${p.categoryLabel})\n      Tech: ${p.tech.join(', ')}\n      Link: ${p.live || p.code}`)
         .join('\n\n');
       newHistory.push({ text: `Shipped Projects:\n${projList}`, type: "output" });
+    } else if (cmd === 'solo' || cmd === 'sololeveling') {
+      const soloProj = CONFIG.projects.find((p) => p.title.toLowerCase().includes('solo'));
+      if (soloProj) {
+        newHistory.push({
+          text: `⚔️ [#${soloProj.num}] ${soloProj.title} (${soloProj.categoryLabel})\nTech: ${soloProj.tech.join(', ')}\nLink: ${soloProj.live || soloProj.code}\nDesc: ${soloProj.desc}`,
+          type: "output"
+        });
+      }
     } else if (cmd === 'wip' || cmd === 'upcoming') {
       newHistory.push({
         text: `Flagship Project: ${CONFIG.wip.name} (${CONFIG.wip.status} - ${CONFIG.wip.progress}%)

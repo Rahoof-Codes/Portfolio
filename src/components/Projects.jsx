@@ -134,7 +134,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="project-top-icon-link"
-                      title="Open Live App"
+                      title={proj.liveLabel || "Open Live App"}
                     >
                       <ArrowUpRight size={16} />
                     </a>
@@ -174,7 +174,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     className="btn btn-primary btn-sm"
                   >
-                    <span>Live Demo</span>
+                    <span>{proj.liveLabel || 'Live Demo'}</span>
                     <ArrowUpRight size={14} />
                   </a>
                 ) : (

@@ -24,7 +24,7 @@ export const CONFIG = {
     timezone: "IST (UTC+05:30)",
     currentFocus: "LangGraph Multi-Agent Workflows & AWS Bedrock Guardrails",
     experienceYears: "2+",
-    projectsShipped: "5+",
+    projectsShipped: "6+",
     happyClients: "3+",
   },
 
@@ -177,6 +177,24 @@ export const CONFIG = {
         "Optimized layout, swift page transitions, and contact pipeline"
       ]
     },
+    {
+      num: "06",
+      title: "Solo Levelling — Fitness Quest System",
+      category: "tools",
+      categoryLabel: "Fitness & Tools",
+      desc: "A gamified real-world fitness and training application inspired by the Solo Leveling Hunter Quest System. Users level up their physical stats (Strength, Agility, Stamina) by completing daily workout quests (Push-ups, Sit-ups, Squats, and Running) with real-time quest progress, streak tracking, and rank progression.",
+      tech: ["React / React Native", "JavaScript", "Tailwind CSS", "Fitness Tracker", "Gamification"],
+      live: "https://github.com/Rahoof-Codes/solo-levelling-system/releases",
+      liveLabel: "Download App",
+      code: "https://github.com/Rahoof-Codes/solo-levelling-system",
+      image: "images/solo-fitness.jpg",
+      character: "🏋️‍♂️",
+      highlights: [
+        "Daily Fitness Quest Engine: Tracks push-ups, squats, sit-ups, and running distance with streak records",
+        "Hunter RPG Stat Progression: Converts physical workout milestones into Strength, Agility, and Stamina points",
+        "Holographic Hunter HUD: Cyber-blue quest interface with real-time stamina metrics and workout timers"
+      ]
+    },
   ],
 
   // ---------- Flagship In-Progress Project ----------
@@ -267,6 +285,10 @@ export const CONFIG = {
     {
       question: "What are his education details?",
       answer: "He is currently pursuing his Bachelor of Computer Applications (BCA) at Government Arts and Science College, Oddanchathram, Tamil Nadu."
+    },
+    {
+      question: "Tell me about the Solo Leveling project",
+      answer: "The Solo Levelling Fitness System is a gamified workout application where users complete real-world daily exercise quests (push-ups, sit-ups, squats, running) to level up their hunter stats from E-Rank to S-Rank."
     }
   ]
 };

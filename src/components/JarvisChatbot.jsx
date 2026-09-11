@@ -17,9 +17,9 @@ export default function JarvisChatbot() {
   const suggestedQueries = [
     'Who is Abdul Rahoof?',
     'What is his flagship AI project?',
+    'Show me the Solo Leveling project',
     'What are his core skills?',
     'Is Abdul open for hire / freelance?',
-    'Show me his CRM project',
   ];
 
   useEffect(() => {
@@ -39,6 +39,9 @@ export default function JarvisChatbot() {
     }
     if (q.includes('crm') || q.includes('clientos') || q.includes('top project')) {
       return "His featured full-stack application is 'ClientOS — Enterprise CRM', built with React, Supabase, and Tailwind CSS. It supports granular Admin/Staff roles, real-time debt calculation, and one-click CSV export.";
+    }
+    if (q.includes('solo') || q.includes('leveling') || q.includes('hunter') || q.includes('fitness')) {
+      return "Abdul engineered the 'Solo Levelling — Fitness Quest System', a gamified real-world workout application where daily physical training (push-ups, squats, running) levels up your hunter stats and stamina inspired by Solo Leveling!";
     }
     if (q.includes('jarvis') || q.includes('voice') || q.includes('offline')) {
       return "He built a self-hosted offline J.A.R.V.I.S running Gemma 4 (4B parameters) with Faster-Whisper for STT and Piper TTS for zero-cloud latency under 800ms!";
